@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\ParentChild;
+use App\Models\Child;
 
 class RegisterController extends Controller
 {
@@ -50,9 +52,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8']
         ]);
     }
 
@@ -64,10 +65,37 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $ortu = User::create([
+            'name' => $data['nama_ortu'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'isParent' => 1,
         ]);
+
+        $ortu_data = ParentChild::create([
+            'user_id' => $ortu->id,
+            'tanggal_lahir' => $data['tanggal_lahir_ortu'],
+            'alamat' => $data['alamat_ortu'],
+            'hp' => $data['hp_ortu']
+        ]);
+
+        foreach($data['nama_anak'] as $key => $value) {
+            $anak = User::create([
+                'name' => $value,
+                'email' => $data['email_anak'][$key],
+                'password' => Hash::make($data['password_anak'][$key]),
+                'isChild' => 1,
+            ]);
+
+            $anak_data = Child::create([
+                'user_id' => $anak->id,
+                'parent_child_id' => $ortu_data->id,
+                'tanggal_lahir' => $data['tanggal_lahir_anak'][$key],
+                'alamat' => $data['alamat_anak'][$key],
+                'hp' => $data['hp_anak'][$key]
+            ]);
+        }
+
+        return $ortu;
     }
 }

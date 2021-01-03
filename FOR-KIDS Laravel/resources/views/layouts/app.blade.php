@@ -1,112 +1,140 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{config('app.name')}}</title>
+    <link href="/logo.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 
-    <title>For Kids</title>
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
-    <!-- Scripts -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+    <!-- Bootstrap -->
+    <link href="/template/assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
+    <!-- Font-awesome -->
+    <link href="/template/assets/css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Flaticon -->
+    <link href="/template/assets/flaticon/flaticon.css" rel="stylesheet">
 
+    <!-- lightcase -->
+    <link href="/template/assets/css/lightcase.css" rel="stylesheet">
+
+    <!-- Swiper -->
+    <link href="/template/assets/css/swiper.min.css" rel="stylesheet">
+
+    <!-- quick-view -->
+    <link href="/template/assets/css/quick-view.css" rel="stylesheet">
+
+    <!-- nstSlider -->
+    <link href="/template/assets/css/jquery.nstSlider.css" rel="stylesheet">
+
+    <!-- flexslider -->
+    <link href="/template/assets/css/flexslider.css" rel="stylesheet">
+
+    <!-- Style -->
+    <link href="/template/assets/css/rtl.css" rel="stylesheet">
+
+    <!-- Style -->
+    <link href="/template/assets/css/style.css" rel="stylesheet">
+
+    <!-- Responsive -->
+    <link href="/template/assets/css/responsive.css" rel="stylesheet">
+
+   
 </head>
 
-<body style="background-color: yellow" ;>
-    <!-- Awal navbar -->
-    <nav class="navbar navbar-expand-md navbar-black bg-white shadow-sm">
-        <div class="container">
-            <!-- navbar brand -->
-            <a class="navbar-brand" href="{{ url('/') }}">
 
-                <b>Admin For-KIDS</b>
-            </a>
-            <!-- akhir navbar brand -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<body id="scroll-top">
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+    <!-- header End here -->
+    @yield('content')
+    <!-- Footer Start here -->
+    <footer>
 
-                    <li>
-                        <a href="/" class="nav-link">Home</a>
-                    </li>
-                    <li>
-                        <a href="{{route('product.index')}}" class="nav-link">Add Package</a>
-                    </li>
-                    <li>
-                        <a href="{{route('order.index')}}" class="nav-link">View Order</a>
-                    </li>
-                    <!-- <li>
-                        <a href="{{route('order.history')}}" class="nav-link">History</a>
-                    </li> -->
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- akhir navbar -->
-    <main class="py-4">
-        <div class="container">
-            @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <ul style="margin-bottom:0px;">
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-            @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                {{ session('success') }}
-            </div>
-            @endif
-            @if (session('error'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                {{ session('error') }}
-            </div>
-            @endif
-        </div>
-        @yield('content')
-    </main>
-    <script src="/ckeditor/ckeditor.js"></script>
-    <script src="/ckeditor/adapters/jquery.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <p>&copy; {{date('Y')}}. By <a href="{{url('/')}}">{{config('app.name')}}</a></p>
+                    </div>
+                  
+                </div><!-- row -->
+            </div><!-- container -->
+        </div><!-- footer bottom -->
+    </footer>
+    <a class="page-scroll scroll-top" href="#scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+    <!-- Footer End here -->
+
+
+    <!-- jquery -->
+    <script src="/template/assets/js/jquery-1.12.4.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="/template/assets/js/bootstrap.min.js"></script>
+
+    <!-- Isotope -->
+    <script src="/template/assets/js/isotope.min.js"></script>
+
+    <!-- lightcase -->
+    <script src="/template/assets/js/lightcase.js"></script>
+
+    <!-- counterup -->
+    <script src="/template/assets/js/waypoints.min.js"></script>
+    <script src="/template/assets/js/jquery.counterup.min.js"></script>
+
+    <!-- Swiper -->
+    <script src="/template/assets/js/swiper.jquery.min.js"></script>
+
+    <!--progress-->
+    <script src="/template/assets/js/circle-progress.min.js"></script>
+
+    <!--velocity-->
+    <script src="/template/assets/js/velocity.min.js"></script>
+
+    <!--quick-view-->
+    <script src="/template/assets/js/quick-view.js"></script>
+
+    <!--nstSlider-->
+    <script src="/template/assets/js/jquery.nstSlider.js"></script>
+
+    <!--flexslider-->
+    <script src="/template/assets/js/flexslider-min.js"></script>
+
+    <!--easing-->
+    <script src="/template/assets/js/jquery.easing.min.js"></script>
+
+    <!-- custom -->
+    <script src="/template/assets/js/custom.js"></script>
+    @yield('js')
 
     <script>
-    $("#table").DataTable();
-    $(document).ready(function() {
+        $(document).ready(function() {
+            cart_show();
+        });
 
-        $('textarea').ckeditor();
+        function cart_show() {
+            $("#cart-show").load("{{route('ajax.cart.view')}}");
+        }
 
-    });
+        function cart_action(url) {
+            $.ajax({
+                url:url,
+                type:'GET',
+                dataType:'html',
+                success:function(data) {
+                    cart_show();
+                },
+                error:function() {
+                    console.log('terjadi kesalahan');
+                }
+            });
+        }
     </script>
-
 </body>
 
 </html>

@@ -1,13 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <div class="container">
-    <div class="row">
-        <div class="col-md">
-            <br><br><br>
-            <center><img src="/gambar-home.jpg" alt=""
-                    class="img-responsive img-fluid animate__animated animate__animated animate__flip"></center>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
         </div>
     </div>
 </div>
