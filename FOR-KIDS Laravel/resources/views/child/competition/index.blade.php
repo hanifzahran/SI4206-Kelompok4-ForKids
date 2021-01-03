@@ -41,29 +41,33 @@
                                                 class="img-responsive">
                                             <div class="date">
                                                 <span>{{\Carbon\carbon::parse($data->competition->tanggal)->format('d')}}</span>
-                                                <p>{{\Carbon\carbon::parse($data->competition->tanggal)->format('M')}}</p>
+                                                <p>{{\Carbon\carbon::parse($data->competition->tanggal)->format('M')}}
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="event-content" style="width:100% !Important">
                                             <h4>{{$data->competition->name}}</h4>
                                             <ul>
-                                                <li><span><i class="fa fa-calendar-o" aria-hidden="true"></i></span>{{$data->competition->tanggal}}</li>
-                                               
-                                            </ul>     
+                                                <li><span><i class="fa fa-calendar-o"
+                                                            aria-hidden="true"></i></span>{{$data->competition->getTanggal()}}
+                                                </li>
+
+                                            </ul>
                                             <p>{{substr($data->competition->description,0,100)}}...</p>
-                                            @if($data->foto != NULL OR $data->foto != '')
-                                            <a href="{{route('competition.submission',$data->id)}}" class="button-default ml-2"><i class="fa fa-cloud"></i> Upload Karya</a>          
+                                            @if(is_null($data->file))
+                                            <a href="{{route('competition.submission',$data->id)}}"
+                                                class="button-default ml-2"><i class="fa fa-cloud"></i> Upload Karya</a>
                                             @else
                                             <span class="btn btn-block btn-warning text-white" disabled>
-                                            @if($data->nilai == NULL OR $data->nilai == FALSE)
-                                            Telah Di Submit 
-                                            @else 
-                                            Nilai Anda {{$data->nilai}}
+                                                @if(is_null($data->nilai))
+                                                Telah Di Submit
+                                                @else
+                                                Nilai Anda {{$data->nilai}}
+                                                @endif
+
+                                                <i class="fa fa-check text-success"></i></span>
                                             @endif
-                                            
-                                            <i class="fa fa-check text-success"></i></span>
-                                            @endif
-                       
+
                                         </div>
                                     </div>
                                 </div>
