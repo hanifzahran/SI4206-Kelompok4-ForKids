@@ -29,11 +29,10 @@ class VideoController extends Controller
         $file = $request->file('foto');
         $data = $request->all();
         array_chunk($data,4,4);
-        if($file == TRUE) {
-            $file_name = time().$file->getClientOriginalName();
-            $data['foto'] = $file_name;
-            $file->move(public_path('img/video'),$file_name); 
-        }   
+       
+        $file_name = time().$file->getClientOriginalName();
+        $data['foto'] = $file_name;
+        $file->move(public_path('img/video'),$file_name); 
         Video::create($data);
         return redirect()->back()->with('success','Berhasil Tambah Data !');
     }

@@ -14,6 +14,6 @@ class Video extends Model
     ];
 
     public function getFoto() {
-        return '/assets/Education Video.png';
+        return '/img/video/'.$this->foto;
     }
 }

@@ -11,9 +11,9 @@
                 <div class="container">
                     <div class="banner-content">
                         <h3>Welcome to {{config('app.name')}}</h3>
-                        <h2 style="color: yellow">Best For Creativity</h2>
-                        <p>It's not about what you leave for your children, but what you leave behind in your children.
-                            Together with FOR-Kids, children become creative, independent and achievers.</p>
+                        <h2>Best For Creativity</h2>
+                        <p>Monotonely principle centered ahitectures through and standards magnetic metrics whereas
+                            cross functional products.</p>
                         <ul>
                             <li><a href="#about" class="button-default">Read More</a></li>
                             <!-- <li><a href="#" class="button-default">Buy Now</a></li> -->
@@ -26,9 +26,9 @@
                 <div class="container">
                     <div class="banner-content">
                         <h3>Welcome to {{config('app.name')}}</h3>
-                        <h2 style="color: orange">Best For Creativity</h2>
-                        <p>It's not about what you leave for your children, but what you leave behind in your children.
-                            Together with FOR-Kids, children become creative, independent and achievers.</p>
+                        <h2>Best For Creativity</h2>
+                        <p>Monotonely principle centered ahitectures through and standards magnetic metrics whereas
+                            cross functional products.</p>
                         <ul>
                             <li><a href="#" class="button-default">Read More</a></li>
                             <!-- <li><a href="#" class="button-default">Buy Now</a></li> -->
@@ -41,9 +41,9 @@
                 <div class="container">
                     <div class="banner-content">
                         <h3>Welcome to {{config('app.name')}}</h3>
-                        <h2 style="color: red">Best For Creativity</h2>
-                        <p>It's not about what you leave for your children, but what you leave behind in your children.
-                            Together with FOR-Kids, children become creative, independent and achievers.</p>
+                        <h2>Best For Creativity</h2>
+                        <p>Monotonely principle centered ahitectures through and standards magnetic metrics whereas
+                            cross functional products.</p>
                         <ul>
                             <li><a href="#" class="button-default">Read More</a></li>
                             <!-- <li><a href="#" class="button-default">Buy Now</a></li> -->
@@ -66,40 +66,32 @@
             <div class="col-lg-3 col-sm-6 col-xs-12">
                 <div class="facility-item">
                     <span class="icon flaticon-symbols"></span>
-                    <h4>Creativity</h4>
-                    <p>Creativity (creativity) is a person's ability to develop, create, and be creative to generate new
-                        ideas and ways of solving problems and finding opportunities (thinking new things). What is
-                        meant by new ideas does not mean something completely new, from nothing to being.
+                    <h4>Active Learning</h4>
+                    <p>Uniquely productivate real time collaboration idea-sharing after awesome quality vectors after
                     </p>
                 </div><!-- facility item -->
             </div>
             <div class="col-lg-3 col-sm-6 col-xs-12">
                 <div class="facility-item">
                     <span class="icon flaticon-avatar"></span>
-                    <h4>Story</h4>
-                    <p>Story are a type of prose where the contents of the story are not real events and are only made
-                        up. The number of words in the short story is not more than 10,000 words. [1] Short story
-                        writing uses a narrative, concise and direct language style to the core of the story.
+                    <h4>Expert Teachers</h4>
+                    <p>Uniquely productivate real time collaboration idea-sharing after awesome quality vectors after
                     </p>
                 </div><!-- facility item -->
             </div>
             <div class="col-lg-3 col-sm-6 col-xs-12">
                 <div class="facility-item">
                     <span class="icon flaticon-world"></span>
-                    <h4>Daily Activities</h4>
-                    <p>The main activity that children need to do in carrying out their daily activities is playing
-                        while learning. Learning for children will be more effective when undertaken through direct
-                        experience, because the ability to think and reason children is still limited to things that are
-                        concrete and do not have the ability to think abstractly.
+                    <h4>Strategi Location</h4>
+                    <p>Uniquely productivate real time collaboration idea-sharing after awesome quality vectors after
                     </p>
                 </div><!-- facility item -->
             </div>
             <div class="col-lg-3 col-sm-6 col-xs-12">
                 <div class="facility-item">
                     <span class="icon flaticon-line-chart"></span>
-                    <h4>Competition</h4>
-                    <p>Competition is a process of social activity that occurs between individuals and between groups
-                        which will always compete for all kinds of goals and also benefits.
+                    <h4>Full Day Programs</h4>
+                    <p>Uniquely productivate real time collaboration idea-sharing after awesome quality vectors after
                     </p>
                 </div><!-- facility item -->
             </div>
@@ -122,15 +114,15 @@
                 <div class="col-lg-6">
                     <div class="about-content">
                         <h3>About Our {{config('app.name')}}</h3>
-                        <p>FOR-Kids is a website that aims to improve and develop children's creativity, skills, ways of
-                            thinking and sensitivity to the things around them, by focusing on 4 main areas, namely
-                            children's creativity, learning and development, challenges and games.
-                            The website is created in such a way as to provide a forum for children to be able to
-                            develop themselves and their potential outside of school, as well as to help parents shape
-                            children's character.</p>
+                        <p>Enthusiasticay diseminate competitive oportunitie through transparent an actions Compelngly
+                            seize viral schemas through intermandated creative is adiea sources. Enthusiasticay
+                            plagiarize clientcentered relationship for the covalent experiences. Distinctively architect
+                            24/365 service for wireless is ebusiness ahosfluorescently Efficiently comunicate coperative
+                            methods of empowerment awesome athrough Monotonectaly myocardinate cross and functional
+                            niche markets and an functional.</p>
                         <ul>
                             <li><a href="#" class="button-default">Read More</a></li>
-                            <li><a href="#" class="button-default">Lets Join!</a></li>
+                            <li><a href="#" class="button-default">Buy Now</a></li>
                         </ul>
                     </div><!-- about content -->
                 </div>
@@ -198,7 +190,7 @@
             <div class="col-lg-4 col-sm-6 col-xs-12">
                 <div class="class-item">
                     <div class="image">
-                        <img src="/assets/Event.png" alt="class image" class="img-responsive">
+                        <img src="{{$data_event->getFoto()}}" alt="class image" class="img-responsive">
                     </div>
                     <ul class="schedule">
                         <li style="width:100% !important">
@@ -215,7 +207,7 @@
 								  'id' => $data_event->id,
 								  'name' => $data_event->name,
 								  'price' => $data_event->price,
-								  'foto' => '/assets/Event.png',
+								  'foto' => $data_event->foto,
 								  'isEvent' => $data_event->id
 								  ])}}')" class="btn btn-outline-light btn-block">Buy Now</a>
                     </div>
@@ -327,7 +319,7 @@
                     <div class="achievement-item">
                         <i class="icon flaticon-student"></i>
                         <span class="counter">{{$count_student}}</span><span>+</span>
-                        <p>Total Child</p>
+                        <p>Total Students</p>
                     </div><!-- achievement item -->
                 </div>
                 <div class="col-md-3 col-sm-3 col-12">

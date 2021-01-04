@@ -39,7 +39,7 @@
                 <i class="fa fa-plus"></i> Tambah Data
             </div>
             <div class="card-body table-responsive">
-                <form method="POST" action="{{route('event.store')}}">
+                <form method="POST" action="{{route('event.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>Name :</label>

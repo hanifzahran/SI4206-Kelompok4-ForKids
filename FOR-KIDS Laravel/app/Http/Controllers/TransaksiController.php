@@ -35,16 +35,22 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Transaksi::findOrFail($id);
-        $data->status = $request->status;
-        \DB::transaction(function () use($request,$id,$data) {
-            $event = Event_detail::create([
-                'event_id' => $data->isEvent,
-                'user_id' => $data->user_id
-            ]);
-            $data->save();
-        });
-        return redirect()->back()->with('success','Status Pesanan #'.$id.' Diubah Menjadi '.$request->status);
+       
+    }
+
+    public function checkout_update(Request $request,$no_unik) {
+        $query = Transaksi::where('no_unik',$no_unik);
+        foreach($query->get() as $data) {
+            if(!is_null($data->isEvent)) {
+                Event_detail::create([
+                    'event_id' => $data->isEvent,
+                    'user_id' => $data->user_id
+                ]);
+            }
+            Transaksi::where('no_unik',$data->no_unik)->update(['status' => $request->status]);
+        }
+            
+        return redirect()->back()->with('success','Status Pesanan #'.$no_unik.' Diubah Menjadi '.$request->status);
     }
 
     /**
@@ -56,6 +62,20 @@ class TransaksiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function checkout_list(Request $request)
+    {
+        $data = Transaksi::findOrFail($id);
+        $data->status = $request->status;
+        \DB::transaction(function () use($request,$id,$data) {
+            $event = Event_detail::create([
+                'event_id' => $data->isEvent,
+                'user_id' => $data->user_id
+            ]);
+            $data->save();
+        });
+        return redirect()->back()->with('success','Status Pesanan #'.$id.' Diubah Menjadi '.$request->status);
     }
 
     public function checkout() {

@@ -35,6 +35,7 @@ Route::get('dongeng-delete/{id}', 'DongengController@destroy')->name('dongeng.de
 
 Route::resource('transaksi','TransaksiController');
 Route::get('transaksi-checkout','TransaksiController@checkout')->name('transaksi.checkout');
+Route::get('transaksi-checkout-update/{no_unik}','TransaksiController@checkout_update')->name('transaksi.checkout.update');
 Route::get('invoice/{no_unik}','TransaksiController@invoice')->name('transaksi.invoice');
 
 Route::resource('pembayaran','PembayaranController');

@@ -27,7 +27,13 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $file = $request->file('foto');
-        $data = $request->all();   
+        $data = $request->all();  
+        array_chunk($data,3,3);
+        if($file == TRUE) {
+            $file_name = time().$file->getClientOriginalName();
+            $data['foto'] = $file_name;
+            $file->move(public_path('img/event'),$file_name); 
+        }
         Event::create($data);
         return redirect()->back()->with('success','Berhasil Tambah Data !');
     }
@@ -56,7 +62,7 @@ class EventController extends Controller
         return view('admin.event.edit',compact('data'));
     }
 
-    /**
+    /** 
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -66,7 +72,13 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
         $file = $request->file('foto');
-        $data = $request->all();   
+        $data = $request->all();  
+        array_chunk($data,3,3);
+        if($file == TRUE) {
+            $file_name = time().$file->getClientOriginalName();
+            $data['foto'] = $file_name;
+            $file->move(public_path('img/event'),$file_name); 
+        }
         Event::findOrFail($id)->update($data);
         return redirect()->back()->with('success','Berhasil Ubah Data !');
     }

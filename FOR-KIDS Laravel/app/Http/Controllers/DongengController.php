@@ -33,7 +33,7 @@ class DongengController extends Controller
             $file_name = time().$file->getClientOriginalName();
             $data['foto'] = $file_name;
             $file->move(public_path('img/dongeng'),$file_name); 
-        } 
+        }
         Dongeng::create($data);
         return redirect()->back()->with('success','Berhasil Tambah Data !');
     }

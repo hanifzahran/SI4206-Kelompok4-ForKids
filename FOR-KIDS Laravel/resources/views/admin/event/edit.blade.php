@@ -1,4 +1,4 @@
-<form method="POST" action="{{route('event.update',$data->id)}}">
+<form method="POST" action="{{route('event.update',$data->id)}}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="form-group">
@@ -10,9 +10,14 @@
         <textarea name="description" class="form-control" placeholder="description"
             required>{!! $data->description !!}</textarea>
     </div>
+    @if($data->foto == TRUE)
+    <div class="form-group text-center">
+        <img src="{{$data->getFoto()}}" alt="" class="img-fluid img-responsive">
+    </div>
+    @endif
     <div class="form-group">
         <label>Foto :</label>
-        <input type="file" class="form-control" name="foto" required="" required>
+        <input type="file" class="form-control" name="foto" required>
     </div>
     <div class="form-group">
         <label>Price :</label>

@@ -43,7 +43,7 @@
                 <i class="fa fa-plus"></i> Tambah Data
             </div>
             <div class="card-body table-responsive">
-                <form method="POST" action="{{route('video.store')}}">
+                <form method="POST" action="{{route('video.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label>Name :</label>

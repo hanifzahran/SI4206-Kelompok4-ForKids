@@ -116,7 +116,7 @@ class CompetitionController extends Controller
     }
 
     public function submission($id) {
-        $data = Competition::findOrFail($id);
+        $data = Competition_detail::findOrFail($id);
         return view('child.competition.file',compact('data'));
     }
 

@@ -1,4 +1,4 @@
-<form method="POST" action="{{route('video.update',$data->id)}}">
+<form method="POST" action="{{route('video.update',$data->id)}}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="form-group">
